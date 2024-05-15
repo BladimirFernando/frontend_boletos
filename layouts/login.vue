@@ -1,7 +1,15 @@
 <template>
   <v-container fluid>
     <v-row>
-      <v-col />
+      <v-col>
+        <v-img
+          :src="require('../assets/images/connectando.jpg')"
+          height="120px"
+          width="120px"
+          alt="Descripción de la imagen"
+          style="margin-left: 60px;"
+        />
+      </v-col>
       <v-col>
         <v-btn text class="black--text">
           <span class="barra">Inicio</span>
@@ -46,7 +54,15 @@
           </p>
         </v-col>
         <v-row>
-          <v-col />
+          <v-col>
+            <v-img
+              :src="require('../assets/images/playy.jpg')"
+              height="90px"
+              width="250px"
+              alt="Descripción de la imagen"
+              style="margin-left: 60px;"
+            />
+          </v-col>
         </v-row>
       </v-col>
       <v-col cols="6" align="center" justify="center">
@@ -91,67 +107,47 @@
 
 <script>
 export default {
-  data () {
-    return {
-      email: null,
-      password: null
-    }
-  },
-  methods: {
-    async login () {
-      await console.log('@@@ datos', this.email, this.password)
-      const sendData = {
-        email: this.email,
-        password: this.password
-      }
-      await this.$auth.loginWith('local', {
-        data: sendData
-      }).then(async (res) => {
-        await console.log('@@@ res=> ', res)
-      }).catch((err) => {
-        console.log('@@@ error=> ', err)
-      })
-    }
-  }
+  // name: 'IndexPage',
+  // auth: false
 }
 </script>
 
-<style>
-.custom-card {
-  max-width: 300px;
-  max-height: 300px;
-  padding: 10px;
-  font-size: 14px;
-}
+  <style>
+  .custom-card {
+    max-width: 300px;
+    max-height: 300px;
+    padding: 10px;
+    font-size: 14px;
+  }
 
-.barra {
-  text-transform: none;
-  font-size: 17px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: bold;
-}
+  .barra {
+    text-transform: none;
+    font-size: 17px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+  }
 
-.custom-icon {
-  color: rgb(0, 0, 0) !important; /* Cambia "blue" al color deseado */
-}
+  .custom-icon {
+    color: rgb(0, 0, 0) !important; /* Cambia "blue" al color deseado */
+  }
 
-.with-icon::before {
-  content: '\2714'; /* Código de carácter para el icono de check */
-  color: green; /* Color del icono de check */
-  margin-right: 5px; /* Espacio entre el icono y el texto */
-}
+  .with-icon::before {
+    content: '\2714'; /* Código de carácter para el icono de check */
+    color: green; /* Color del icono de check */
+    margin-right: 5px; /* Espacio entre el icono y el texto */
+  }
 
-.with-icon {
-  font-family: 'Roboto', sans-serif; /* Cambia 'Roboto' por la fuente que desees */
-}
+  .with-icon {
+    font-family: 'Roboto', sans-serif; /* Cambia 'Roboto' por la fuente que desees */
+  }
 
-.title {
-  font-family: 'Roboto', sans-serif;
-}
+  .title {
+    font-family: 'Roboto', sans-serif;
+  }
 
-.h3-t {
-  font-size: 40px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
+  .h3-t {
+    font-size: 40px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
 
-</style>
+  </style>
