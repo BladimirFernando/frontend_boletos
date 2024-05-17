@@ -107,9 +107,34 @@
 
 <script>
 export default {
-  // name: 'IndexPage',
-  // auth: false
+  data () {
+    return {
+      email: null,
+      password: null
+    }
+  },
+  methods: {
+    async login () {
+      await console.log('@@@ datos', this.email, this.password)
+      const sendData = {
+        email: this.email,
+        password: this.password
+      }
+      await this.$auth.loginWith('local', {
+        data: sendData
+      }).then(async (res) => {
+        const result = await res.data
+        if (result.message === 'success') {
+          this.$store.commit('setToken', result.token)
+          this.$router.push('/principal')
+        }
+      }).catch((err) => {
+        console.log('@@@ error=> ', err)
+      })
+    }
+  }
 }
+
 </script>
 
   <style>

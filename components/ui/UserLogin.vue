@@ -107,7 +107,11 @@ export default {
       await this.$auth.loginWith('local', {
         data: sendData
       }).then(async (res) => {
-        await console.log('@@@ res=> ', res)
+        const result = await res.data
+        if (result.message === 'success') {
+          this.$store.commit('setToken', result.token)
+          this.$router.push('/principal')
+        }
       }).catch((err) => {
         console.log('@@@ error=> ', err)
       })
