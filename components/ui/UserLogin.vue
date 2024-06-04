@@ -15,7 +15,7 @@
         <v-btn text class="black--text">
           <span class="barra">Ayuda</span>
         </v-btn>
-        <v-btn style="background-color:lime; border-radius: 20px;">
+        <v-btn style="background-color:lime; border-radius: 20px;" @click="showDialog = true">
           <span class="barra">Registrate gratis</span>
         </v-btn>
       </v-col>
@@ -84,6 +84,33 @@
             </v-card>
           </v-col>
         </v-row>
+        <v-dialog
+          v-model="showDialog"
+          persistent
+          width="500"
+          transition="dialog-bottom-transition"
+        >
+          <v-card>
+            <v-card-title>Nuevo usuario</v-card-title>
+            <v-card-text>input</v-card-text>
+            <v-card-actions>
+              <v-col cols="6">
+                <v-btn block color="green">
+                  <span style="text-transform: none; color: white;">
+                    Registrar
+                  </span>
+                </v-btn>
+              </v-col>
+              <v-col cols="6">
+                <v-btn block color="red">
+                  <span style="text-transform: none; color: white;">
+                    Cancelar
+                  </span>
+                </v-btn>
+              </v-col>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
       </v-col>
     </v-row>
   </v-container>
@@ -94,7 +121,8 @@ export default {
   data () {
     return {
       email: null,
-      password: null
+      password: null,
+      showDialog: false
     }
   },
   methods: {
@@ -118,44 +146,45 @@ export default {
     }
   }
 }
+
 </script>
 
-<style>
-.custom-card {
-  max-width: 300px;
-  max-height: 300px;
-  padding: 10px;
-  font-size: 14px;
-}
+  <style>
+  .custom-card {
+    max-width: 300px;
+    max-height: 300px;
+    padding: 10px;
+    font-size: 14px;
+  }
 
-.barra {
-  text-transform: none;
-  font-size: 17px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: bold;
-}
+  .barra {
+    text-transform: none;
+    font-size: 17px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+  }
 
-.custom-icon {
-  color: rgb(0, 0, 0) !important; /* Cambia "blue" al color deseado */
-}
+  .custom-icon {
+    color: rgb(0, 0, 0) !important; /* Cambia "blue" al color deseado */
+  }
 
-.with-icon::before {
-  content: '\2714'; /* Código de carácter para el icono de check */
-  color: green; /* Color del icono de check */
-  margin-right: 5px; /* Espacio entre el icono y el texto */
-}
+  .with-icon::before {
+    content: '\2714'; /* Código de carácter para el icono de check */
+    color: green; /* Color del icono de check */
+    margin-right: 5px; /* Espacio entre el icono y el texto */
+  }
 
-.with-icon {
-  font-family: 'Roboto', sans-serif; /* Cambia 'Roboto' por la fuente que desees */
-}
+  .with-icon {
+    font-family: 'Roboto', sans-serif; /* Cambia 'Roboto' por la fuente que desees */
+  }
 
-.title {
-  font-family: 'Roboto', sans-serif;
-}
+  .title {
+    font-family: 'Roboto', sans-serif;
+  }
 
-.h3-t {
-  font-size: 40px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
+  .h3-t {
+    font-size: 40px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
 
-</style>
+  </style>
