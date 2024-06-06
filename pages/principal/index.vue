@@ -6,7 +6,7 @@
           <span class="headline black-text">Buscar Viajes</span>
         </v-card-title>
         <v-card-text class="black-text" style="font-family: 'Roboto', sans-serif; font-weight: bold;">
-          A donde viajaremos hoy?
+          ¿A dónde viajaremos hoy?
         </v-card-text>
         <v-card-text>
           <v-form>
@@ -32,66 +32,22 @@
             </v-row>
             <v-row>
               <v-col cols="12" sm="6">
-                <v-menu
-                  v-model="menuDeparture"
-                  :close-on-content-click="false"
-                  :nudge-right="40"
-                  :return-value.sync="formData.departureDate"
-                  transition="scale-transition"
-                  offset-y
-                  min-width="290px"
-                >
-                  <template #activator="{ on, attrs }">
-                    <v-text-field
-                      v-model="formData.departureDate"
-                      label="Fecha de Ida"
-                      prepend-icon="mdi-calendar"
-                      v-bind="attrs"
-                      outlined
-                      type="date"
-                      dense
-                      class="black-text-field"
-                      v-on="on"
-                    />
-                  </template>
-                  <v-date-picker
-                    v-model="formData.departureDate"
-                    no-title
-                    scrollable
-                    @input="menuDeparture = false"
-                  />
-                </v-menu>
+                <v-text-field
+                  v-model="formData.departureDate"
+                  label="Fecha de Ida"
+                  outlined
+                  dense
+                  class="black-text-field"
+                />
               </v-col>
               <v-col cols="12" sm="6">
-                <v-menu
-                  v-model="menuReturn"
-                  :close-on-content-click="false"
-                  :nudge-right="40"
-                  :return-value.sync="formData.returnDate"
-                  transition="scale-transition"
-                  offset-y
-                  min-width="290px"
-                >
-                  <template #activator="{ on, attrs }">
-                    <v-text-field
-                      v-model="formData.returnDate"
-                      label="Fecha de Regreso"
-                      prepend-icon="mdi-calendar"
-                      v-bind="attrs"
-                      outlined
-                      type="date"
-                      dense
-                      class="black-text-field"
-                      v-on="on"
-                    />
-                  </template>
-                  <v-date-picker
-                    v-model="formData.returnDate"
-                    no-title
-                    scrollable
-                    @input="menuReturn = false"
-                  />
-                </v-menu>
+                <v-text-field
+                  v-model="formData.returnDate"
+                  label="Fecha de Regreso"
+                  outlined
+                  dense
+                  class="black-text-field"
+                />
               </v-col>
             </v-row>
             <v-row>
